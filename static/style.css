@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400');
+
+
+/* Equivalent to html */
+:root {
+    font-size: 16px;
+    --base-line-height: 25px;
+    --base-left-margin: 10ch;
+    --base-bottom-margin: calc(var(--base-line-height) * 0.5);
+    --first-bg-color: #4e79a7;
+    --hover-color: #f28e2b;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'IBM Plex Sans', sans;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: var(--base-line-height);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: visible;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+.main {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    width: 100vw;
+    height: 100vh;
+    place-items: center;
+}
+
+.image > img{
+    object-fit: fill;
+    width:90%;
+}
+
+.full-input {
+    line-height: var(--base-line-height);
+    border-radius: 4px;
+    background: #fff;
+    border: 2px solid var(--first-bg-color);
+    padding: .5ch 1ch;
+    width: 30ch;
+    margin: calc(var(--base-line-height) * 0.5) auto;
+}
+
+label {
+    opacity: 0.5;
+}
+
+input {
+    font-size: 1rem;
+    width: 100%;
+    margin: auto;
+    display: block;
+    background-color: #fff;
+    border: none;
+}
+
+.submit {
+    background: var(--first-bg-color);
+    color: #fff;
+    border: 0px;
+    line-height: var(--base-line-height);
+    border-radius: 4px;
+    padding: .5ch 1ch;
+    width: 15ch;
+    margin: var(--base-line-height) auto;
+    transition-duration: 0.25s;
+}
+
+.submit:hover {
+    background: var(--hover-color)
+}
+
+.error {
+    color: var(--first-bg-color);
+    line-height: var(--base-line-height);
+    margin: auto;
+    width: 30ch;
+    text-align: center;
+    margin-top: calc(var(--base-line-height) * 0.5);
+}
