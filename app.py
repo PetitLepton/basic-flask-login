@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, redirect, request, session
 from flask_wtf import FlaskForm, CSRFProtect
 from wtforms import StringField, PasswordField, SubmitField
@@ -53,4 +54,5 @@ def page_1():
 
 
 if __name__ == "__main__":
+    application.secret_key = os.urandom(12)
     application.run(port="5000")

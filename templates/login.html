@@ -1,36 +1,33 @@
 <!DOCTYPE html>
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>Log in</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css', version='1.9') }}">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Log in</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css', version='1.9') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='lock.ico') }}">
 </head>
 
 <html>
 
 <body>
-  <div class='main'>
-    <div class="image">
-      <img src={{ url_for('static', filename='07.png')}} />
+    <div class='main'>
+        <div class="image">
+            <img src={{ url_for( 'static', filename='07.png' )}} />
+        </div>
+        <form action='' method='POST'>
+            {{ form.csrf_token }}
+            <div class='full-input'>
+                {{ form.username.label }} {{ form.username(id='username') }}
+            </div>
+            <div class='full-input'>
+                {{ form.password.label }} {{ form.password(id='password') }}
+            </div>
+            <div class='error'>
+                {% for key in form.errors.keys() %} {{ form.errors[key][0]}} {% endfor %}
+            </div>
+            {{ form.submit(class_='submit') }}
+        </form>
     </div>
-    <form action='' method='POST'>
-      {{ form.csrf_token }}
-      <div class='full-input'>
-        {{ form.username.label }}
-        {{ form.username(id='username') }}
-      </div>
-      <div class='full-input'>
-        {{ form.password.label }}
-        {{ form.password(id='password') }}
-      </div>
-      <div class='error'>
-        {% for key in form.errors.keys() %}
-        {{ form.errors[key][0]}}
-        {% endfor %}
-      </div>
-      {{ form.submit(class_='submit') }}
-    </form>
-  </div>
 </body>
 
 </html>
